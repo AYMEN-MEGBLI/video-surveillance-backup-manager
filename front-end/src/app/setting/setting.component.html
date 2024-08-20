@@ -1,0 +1,48 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Paramètres</h2>
+  
+    <!-- Storage Space Progress -->
+    <div class="mb-4">
+      <label for="storageProgress" class="form-label">Espace de stockage utilisé</label>
+      <div class="progress">
+        <div 
+          id="storageProgress" 
+          class="progress-bar bg-success" 
+          role="progressbar" 
+          [style.width.%]="storageUsed" 
+          aria-valuemin="0" 
+          aria-valuemax="100">
+          {{ storageUsed }}%
+        </div>
+        &nbsp;&nbsp;&nbsp;{{ 100-storageUsed }}Go
+      </div>
+    </div>
+  
+    <!-- Buttons for Formatting and Deleting Videos -->
+    <div class="mb-4">
+      <button class="btn btn-warning me-2" (click)="formatStorage()">Formater le stockage</button>
+      <button class="btn btn-danger" (click)="deleteVideos()">Supprimer les vidéos</button>
+    </div>
+  
+    <!-- Checkboxes for Recording Settings -->
+    <div class="mb-4">
+      <h5>Enregistrement seulement pour :</h5>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="motionCheckbox" [(ngModel)]="recordMotion">
+        <label class="form-check-label" for="motionCheckbox">Séquences de mouvement</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="humanCheckbox" [(ngModel)]="recordHuman">
+        <label class="form-check-label" for="humanCheckbox">Humains</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="vehicleCheckbox" [(ngModel)]="recordVehicle">
+        <label class="form-check-label" for="vehicleCheckbox">Véhicules</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="animalCheckbox" [(ngModel)]="recordAnimals">
+        <label class="form-check-label" for="animalCheckbox">Animaux</label>
+      </div>
+    </div>
+  </div>
+  

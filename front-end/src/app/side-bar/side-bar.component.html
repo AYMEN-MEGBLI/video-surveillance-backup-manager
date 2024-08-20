@@ -1,0 +1,24 @@
+<!-- side-bar.component.html -->
+<nav id="sidebar" class="bg-primary" [ngClass]="{ 'sidebar-closed': !isSidebarOpen }">
+    <div class="sidebar-header">
+        <br>
+        <br>
+      <h3 class="text-white">Surveillance Video Manage</h3>
+    </div>
+    <ul class="list-unstyled components">
+
+      <li>
+        <a [routerLink]="['/detection-from-Video']" aria-label="Detection From Video" routerLinkActive="active">Detection From Video</a>
+      </li>
+      <li>
+        <a [routerLink]="['/video']" aria-label="Video Playlist Gallery" routerLinkActive="active">Video Playlist Gallery</a>
+      </li>
+      <li>
+        <a [routerLink]="['/settings']" aria-label="Parameters" routerLinkActive="active">Parameters</a>
+      </li>
+      <li>
+        <a [routerLink]="['/video-stream']" aria-label="Video Stream" routerLinkActive="active">Stream</a>
+      </li>
+    </ul>
+  </nav>
+  

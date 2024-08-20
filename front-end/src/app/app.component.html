@@ -1,0 +1,21 @@
+<!-- app.component.html (or your main component) -->
+<div id="wrapper" class="d-flex">
+  <button class="btn position-fixed top-0 start-0 m-3 z-3 border rounded" (click)="toggleSidebar()" aria-label="Toggle Sidebar">
+   <span *ngIf="!isSidebarOpen">
+    <i class="fa-sharp fa-solid fa-arrow-right"></i>
+   </span>
+    <span *ngIf="isSidebarOpen">
+      <i class="fa-sharp fa-solid fa-arrow-left"></i>
+    </span>
+  </button>
+  
+  <!-- Sidebar -->
+  <app-side-bar [isSidebarOpen]="isSidebarOpen"></app-side-bar>
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="flex-grow-1" [ngStyle]="{'margin-left': isSidebarOpen ? '250px' : '0'}">
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

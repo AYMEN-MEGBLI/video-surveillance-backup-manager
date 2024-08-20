@@ -1,0 +1,35 @@
+
+
+<span *ngIf="VideoDuration !=0">  VideoDuration :{{VideoDuration}}</span>
+<div *ngFor="let category of a | keyvalue ; index as i">
+
+   
+  <div class="timeline-container" *ngIf="category.value.length != 0">
+    <h2>{{ category.key }}</h2>
+    <div class="timeline">  
+   
+      <div 
+        *ngFor="let segment of category.value "
+        class="timeline-segment" 
+        [style.background-color]="colors[i]"
+        [style.left.%]="calculatePosition(segment[0])"
+        [style.width.%]="calculateWidth(segment[0], segment[1])"
+        (click)="seekTo(segment[0])"
+          [attr.title]="'Start: ' + segment[0].toFixed(2) + 's,\nEnd: ' + segment[1].toFixed(2) + 's'"
+        data-bs-toggle="tooltip" title="Disabled tooltip"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<div *ngFor="let category of a | keyvalue">
+  <h2>{{ category.key }}</h2>
+  <ul>
+    <li *ngFor="let item of category.value">
+      {{ item[0] }} - {{ item[1] }}
+    </li>
+  </ul>
+</div> -->

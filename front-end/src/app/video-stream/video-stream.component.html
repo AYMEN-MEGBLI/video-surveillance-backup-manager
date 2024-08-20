@@ -1,0 +1,18 @@
+<div class="container-fluid bg-gradient">
+    <div class="row justify-content-center align-items-center min-vh-100">
+        <div class=" col-md-9 ">
+            <div class="img-container shadow-lg rounded">
+                <img [src]="vd_src" alt="Video Feed" class="img-fluid rounded" (error)="onImageError()" (load)="onImageLoad()">
+                <nav class="bottom-navbar d-flex justify-content-center align-items-center">
+                    <button #start_rec (click)="startRecording()" class="btn btn-primary me-2">Start Recording</button>
+                    <button #stop_rec (click)="stopRecording()" class="btn btn-danger me-2">Stop Recording</button>
+                    <button #enable_or_diable (click)="enableOrDiable()" class="btn btn-secondary">Enable/Disable</button>
+                </nav>
+            </div>
+            <div class="text-center mt-4">
+                <p *ngIf="isImageLoaded" class="text-success fw-bold">Camera ON</p>
+                <p *ngIf="!isImageLoaded" class="text-danger fw-bold">Camera OFF</p>
+            </div>
+        </div>
+    </div>
+</div>

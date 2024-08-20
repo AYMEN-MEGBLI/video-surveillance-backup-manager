@@ -1,0 +1,30 @@
+<div class="video-container">
+    <div class="vd-cont">
+      <video #videoPlayer class="video-js vjs-default-skin" controls preload="auto"></video>
+  
+      <app-motion-timeline 
+        [motionData]="motionData" 
+        [VideoDuration]="vdDuration"
+        (seek)="onSeek($event)">
+      </app-motion-timeline>
+    </div>
+  
+    <div class="extraire">
+      <h1 class="mb-4">Les séquences</h1>
+      <div *ngFor="let category of motionData | keyvalue">
+        <details open>
+          <summary>{{ category.key }}</summary>
+          <ul>
+            <span *ngIf="category.value.length === 0">No data</span>
+            <li *ngFor="let item of category.value">
+              {{ item[0].toFixed(2) }} : {{ item[1].toFixed(2) }}
+              <button type="button" class="btn btn-primary ms-3 mb-2" (click)="extraireSequence(item[0], item[1])">Extraire cette séquence</button>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-info mb-3" (click)="extraireSequence(0, 1)" *ngIf="category.value.length !== 0">Extraire toutes les séquences de {{ category.key }}</button>
+        </details>
+      </div>
+      <button type="button" class="btn btn-danger mt-4" (click)="extraireSequence(0, 1)" *ngIf="motionData">Extraire toutes les séquences</button>
+    </div>
+  </div>
+  

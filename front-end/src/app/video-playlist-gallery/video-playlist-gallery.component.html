@@ -1,0 +1,25 @@
+<div class="container-video">
+    <div class="main-video" *ngIf="main_vd">
+      <div class="video">
+        <video [src]="get_vd_url(main_vd.file_name)" width="1580" height="820" controls></video>
+        <h3 class="title">{{ main_vd.file_name }}</h3>
+        <app-motion-timeline 
+        [motionData]="motionData" 
+        [VideoDuration]="main_vd.duration"
+        (seek)="onSeek($event)">
+        </app-motion-timeline>
+      </div>
+  
+     
+   
+    </div>
+    
+    <div class="video-list">
+      <!--vid active-->
+      <div class="vid" #vid *ngFor="let video of videos; index as i" (click)="change_vd(i)">
+        <video [src]="get_vd_url(video.file_name)"></video>
+        <h3 class="title">{{ i + " . " + video.file_name }}</h3>
+      </div>
+    </div>
+
+  </div>

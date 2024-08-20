@@ -1,0 +1,22 @@
+
+<form>
+    <input type="file" #fileInput accept=".mp4,.avi" (change)="onFileSelected($event)"  class="form-control" />
+    
+  </form>
+  
+    <div  class="alert alert-primary" *ngIf="uploadResponse">
+      {{uploadResponse}}
+    </div>
+    
+      <div *ngIf="uploadLoading">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+  
+    <app-video-player [videoUrl]="videoUrl" [motionData]="motionData" ></app-video-player>
+    <div *ngIf="motionLoading">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
